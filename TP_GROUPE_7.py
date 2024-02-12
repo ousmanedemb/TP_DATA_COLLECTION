@@ -103,15 +103,19 @@ def main():
         with col1:
             if st.button("Refrigerateurs data"):
                 contenu = refrigerateurs
+                st.write(refrigerateurs.shape)
         with col2:
             if st.button("Climatisation data"):
                 contenu = climatisation
+                st.write(climatisation.shape)
         with col3:
             if st.button("Cuisinieres data"):
                 contenu = cuisinieres
+                st.write(cuisinieres.shape)
         with col4:
             if st.button("Machine à laver data"):
                 contenu = machines
+                st.write(machines.shape)
 
         # Afficher st.write en pleine largeur
         with st.expander("Résultat", expanded=True):
