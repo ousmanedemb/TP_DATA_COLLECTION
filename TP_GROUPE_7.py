@@ -91,30 +91,27 @@ def main():
 
     
     if page_type == 'Scrape data using beautifulSoup':
-        scrap_page(num_pages, 'refrigerateurs-congelateurs')
-        scrap_page(num_pages, 'climatisation')
-        scrap_page(num_pages, 'cuisinieres-fours')
-        scrap_page(num_pages, 'machines-a-laver')
+        refrigerateurs = scrap_page(num_pages, 'refrigerateurs-congelateurs')
+        climatisation = scrap_page(num_pages, 'climatisation')
+        cuisinieres = scrap_page(num_pages, 'cuisinieres-fours')
+        machines = scrap_page(num_pages, 'machines-a-laver')
         contenu = pd.DataFrame()
 
         # Bouton pour afficher les résultats
-        col1, col2, col3, col4, col5 = st.columns([1,1,1,1,1])
+        col1, col2, col3, col4 = st.columns([1,1,1,1])
 
         with col1:
             if st.button("Refrigerateurs data"):
-                contenu = scrap_page(num_pages, 'refrigerateurs-congelateurs')
+                contenu = refrigerateurs
         with col2:
             if st.button("Climatisation data"):
-                contenu = scrap_page(num_pages, 'climatisation')
+                contenu = climatisation
         with col3:
             if st.button("Cuisinieres data"):
-                contenu = scrap_page(num_pages, 'cuisinieres-fours')
+                contenu = cuisinieres
         with col4:
             if st.button("Machine à laver data"):
-                contenu = scrap_page(num_pages, 'machines-a-laver')
-        with col5:
-            if st.button("Nettoyer le cache"):
-                scrap_page.clear()
+                contenu = machines
 
         # Afficher st.write en pleine largeur
         with st.expander("Résultat", expanded=True):
@@ -138,12 +135,12 @@ def main():
             colors = px.colors.qualitative.Pastel
             # Afficher le graphique des prix des produits
             fig_prix = px.bar(top_5_products_refrigerateurs, x="details", y="prix", title="Cinq produits les plus chers (Categories : Refrigerateurs)", labels={"details": "Produit", "prix": "Prix (FCFA)"}, color="prix", color_continuous_scale=colors)
-            fig_prix.update_layout(xaxis={'categoryorder':'total descending'})
+            #fig_prix.update_layout(xaxis={'categoryorder':'total descending'})
             fig_prix.update_xaxes(tickangle=45, tickfont=dict(size=9))
             st.plotly_chart(fig_prix, use_container_width=True)
             #------------------------------------------
             fig_prix = px.bar(top_5_products_machine_laver, x="details", y="prix", title="Cinq produits les plus chers (Categories : Machine à laver)", labels={"details": "Produit", "prix": "Prix (FCFA)"}, color="prix", color_continuous_scale=colors)
-            fig_prix.update_layout(xaxis={'categoryorder':'total descending'})
+            #fig_prix.update_layout(xaxis={'categoryorder':'total descending'})
             fig_prix.update_xaxes(tickangle=45, tickfont=dict(size=9))
             st.plotly_chart(fig_prix, use_container_width=True)
             #------------------------------------------
