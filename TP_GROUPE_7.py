@@ -27,7 +27,7 @@ def add_bg_from_local(image_file):
     unsafe_allow_html=True
     )
 
-@st.cache
+@st.cache_data
 def scrap_page(num_pages, page_type):
     results = []
 
@@ -54,8 +54,8 @@ def scrap_page(num_pages, page_type):
                     results.append(obj)
                 except:
                     pass
-        #else:
-            #results.append(f"Échec du scraping de la page {page}. Code de statut HTTP: {response.status_code}")
+        else:
+            st.write(f"Échec du scraping de la page {page}. Code de statut HTTP: {response.status_code}")
     data = pd.DataFrame(results)
     return data
 
