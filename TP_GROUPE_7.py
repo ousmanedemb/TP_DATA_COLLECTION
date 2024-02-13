@@ -91,9 +91,9 @@ def main():
 
     
     if page_type == 'Scrape data using beautifulSoup':
-        refrigerateurs = scrap_page(num_pages, 'refrigerateurs-congelateurs')
-        climatisation = scrap_page(num_pages, 'climatisation')
-        cuisinieres = scrap_page(num_pages, 'cuisinieres-fours')
+        #refrigerateurs = scrap_page(num_pages, 'refrigerateurs-congelateurs')
+        #climatisation = scrap_page(num_pages, 'climatisation')
+        #cuisinieres = scrap_page(num_pages, 'cuisinieres-fours')
         machines = scrap_page(num_pages, 'machines-a-laver')
         contenu = pd.DataFrame()
 
@@ -178,6 +178,7 @@ def main():
             st.plotly_chart(fig, use_container_width=True)
     elif page_type == 'Fill the form':
         import streamlit.components.v1 as components
+        st.write("TEST")
         html_content = """
             <iframe src="https://ee.kobotoolbox.org/i/y3pfGxMz" width="1000" height = "750"></iframe>
             """
