@@ -1,3 +1,4 @@
+time
 numpy
 bs4
 requests
