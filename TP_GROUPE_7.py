@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import plotly.express as px
+import time
 
 # Définir la configuration de la page pour une mise en page large
 st.set_page_config(layout="wide")
@@ -56,6 +57,8 @@ def scrap_page(num_pages, page_type):
                     pass
         else:
             st.write(f"Échec du scraping de la page {page}. Code de statut HTTP: {response}")
+        # Introduire un délai de 1 à 3 secondes entre les requêtes
+        time.sleep(1 + 2 * random.random())
     data = pd.DataFrame(results)
     return data
 
