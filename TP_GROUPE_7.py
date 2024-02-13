@@ -55,7 +55,7 @@ def scrap_page(num_pages, page_type):
                 except:
                     pass
         else:
-            st.write(f"Échec du scraping de la page {page}. Code de statut HTTP: {response.body}")
+            st.write(f"Échec du scraping de la page {page}. Code de statut HTTP: {response}")
     data = pd.DataFrame(results)
     return data
 
