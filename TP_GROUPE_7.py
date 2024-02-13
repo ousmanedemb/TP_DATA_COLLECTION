@@ -94,7 +94,21 @@ def main():
         #refrigerateurs = scrap_page(num_pages, 'refrigerateurs-congelateurs')
         #climatisation = scrap_page(num_pages, 'climatisation')
         #cuisinieres = scrap_page(num_pages, 'cuisinieres-fours')
-        machines = scrap_page(num_pages, 'machines-a-laver')
+        #machines = scrap_page(num_pages, 'machines-a-laver')
+        with st.spinner("Scrapping des réfrigérateurs..."):
+            refrigerateurs = scrap_page(num_pages, 'refrigerateurs-congelateurs')
+
+        with st.spinner("Scrapping des climatisations..."):
+            climatisation = scrap_page(num_pages, 'climatisation')
+
+        with st.spinner("Scrapping des cuisinières..."):
+            cuisinieres = scrap_page(num_pages, 'cuisinieres-fours')
+
+        with st.spinner("Scrapping des machines à laver..."):
+            machines = scrap_page(num_pages, 'machines-a-laver')
+
+        # Une fois le scrapping terminé, affichez les résultats ou effectuez d'autres actions si nécessaire
+        st.success("Le scrapping est terminé !")
         contenu = pd.DataFrame()
 
         # Bouton pour afficher les résultats
