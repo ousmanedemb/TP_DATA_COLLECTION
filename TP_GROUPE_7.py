@@ -34,7 +34,7 @@ def scrap_page(num_pages, page_type):
     for page in range(1, num_pages + 1):
         url = f'https://www.expat-dakar.com/{page_type}?page={page}'
         response = get(url)
-        if response.status_code == 200 OR response.status_code == 429:
+        if response.status_code == 200 or response.status_code == 429:
             soup = BeautifulSoup(response.text, 'html.parser')
             containers = soup.find_all('div', class_ = 'listings-cards__list-item')
             for container in containers:
