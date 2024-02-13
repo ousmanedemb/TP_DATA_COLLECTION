@@ -27,6 +27,7 @@ def add_bg_from_local(image_file):
     unsafe_allow_html=True
     )
 
+@st.cache_data
 def scrap_page(num_pages, page_type):
     results = []
 
@@ -90,13 +91,9 @@ def main():
 
     
     if page_type == 'Scrape data using beautifulSoup':
-        @st.cache_data
         refrigerateurs = scrap_page(num_pages, 'refrigerateurs-congelateurs')
-        @st.cache_data
         climatisation = scrap_page(num_pages, 'climatisation')
-        @st.cache_data
         cuisinieres = scrap_page(num_pages, 'cuisinieres-fours')
-        @st.cache_data
         machines = scrap_page(num_pages, 'machines-a-laver')
         contenu = pd.DataFrame()
 
