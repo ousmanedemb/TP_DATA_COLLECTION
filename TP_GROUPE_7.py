@@ -59,7 +59,7 @@ def scrap_page(num_pages, page_type):
             st.write(f"Échec du scraping de la page {page}. Code de statut HTTP: {response}")
 
         # Mettre en pause l'exécution pendant 1 seconde
-        time.sleep(5)
+        time.sleep(2)
     data = pd.DataFrame(results)
     return data
 
