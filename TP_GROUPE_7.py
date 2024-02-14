@@ -215,7 +215,7 @@ def main():
         import streamlit.components.v1 as components
         st.write("Formulaire Kobotoolbox")
         html_content = """
-            <iframe src="https://ee.kobotoolbox.org/i/y3pfGxMz" width="700" height="500"></iframe>
+            <iframe src="https://ee.kobotoolbox.org/i/y3pfGxMz" height="700"></iframe>
             """
         st.markdown(
             f'<div style="max-width: 1000px">{html_content}</div>', 
