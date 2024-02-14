@@ -105,19 +105,19 @@ def main():
         col1, col2, col3, col4 = st.columns([1,1,1,1])
 
         with col1:
-            if st.button("Refrigerateurs data"):
+            if st.button("Refrigerateurs bs4"):
                 contenu = refrigerateurs
                 st.write(refrigerateurs.shape)
         with col2:
-            if st.button("Climatisation data"):
+            if st.button("Climatisation bs4"):
                 contenu = climatisation
                 st.write(climatisation.shape)
         with col3:
-            if st.button("Cuisinieres data"):
+            if st.button("Cuisinieres bs4"):
                 contenu = cuisinieres
                 st.write(cuisinieres.shape)
         with col4:
-            if st.button("Machine à laver data"):
+            if st.button("Machine à laver bs4"):
                 contenu = machines
                 st.write(machines.shape)
 
@@ -213,9 +213,9 @@ def main():
             st.plotly_chart(fig, use_container_width=True)
     elif page_type == 'Fill the form':
         import streamlit.components.v1 as components
-        st.write("TEST")
+        st.write("Formulaire Kobotoolbox")
         html_content = """
-            <iframe src="https://ee.kobotoolbox.org/i/y3pfGxMz" width="700" height="200"></iframe>
+            <iframe src="https://ee.kobotoolbox.org/i/y3pfGxMz" width="700" height="500"></iframe>
             """
         st.markdown(
             f'<div style="max-width: 1000px">{html_content}</div>', 
