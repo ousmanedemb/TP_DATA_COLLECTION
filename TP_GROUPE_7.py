@@ -55,8 +55,8 @@ def scrap_page(num_pages, page_type):
                     results.append(obj)
                 except:
                     pass
-        else:
-            st.write(f"Échec du scraping de la page {page}. Code de statut HTTP: {response}")
+        #else:
+            #st.write(f"Échec du scraping de la page {page}. Code de statut HTTP: {response}")
 
         # Mettre en pause l'exécution pendant 1 seconde
         time.sleep(2)
@@ -107,19 +107,15 @@ def main():
         with col1:
             if st.button("Refrigerateurs bs4"):
                 contenu = refrigerateurs
-                st.write(refrigerateurs.shape)
         with col2:
             if st.button("Climatisation bs4"):
                 contenu = climatisation
-                st.write(climatisation.shape)
         with col3:
             if st.button("Cuisinieres bs4"):
                 contenu = cuisinieres
-                st.write(cuisinieres.shape)
         with col4:
             if st.button("Machine à laver bs4"):
                 contenu = machines
-                st.write(machines.shape)
 
         # Afficher st.write en pleine largeur
         with st.expander("Résultat", expanded=True):
