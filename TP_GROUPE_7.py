@@ -126,6 +126,37 @@ def main():
             if contenu.shape[0] != 0:
                 display_result(contenu)
 
+    elif page_type == 'Download scraped data':
+        # Stocker les données dans des variables
+        refrigerateurs = pd.read_csv('refrigerateurs.csv')
+        machine_laver = pd.read_csv('machine_laver.csv')
+        cuisinieres = pd.read_csv('cuisinieres.csv')
+        climatiseurs = pd.read_csv('climatiseurs.csv')
+        contenu = pd.DataFrame()
+
+        # Bouton pour afficher les résultats
+        col1, col2, col3, col4 = st.columns([1,1,1,1])
+
+        with col1:
+            if st.button("Refrigerateurs webScrap"):
+                contenu = refrigerateurs
+        with col2:
+            if st.button("Climatisation webScrap"):
+                contenu = climatiseurs
+        with col3:
+            if st.button("Cuisinieres webScrap"):
+                contenu = cuisinieres
+        with col4:
+            if st.button("Machine à laver data"):
+                contenu = machine_laver
+
+        # Afficher st.write en pleine largeur
+        with st.expander("Résultat", expanded=True):
+            if contenu.shape[0] != 0:
+                display_result(contenu)
+
+
+
     elif page_type == 'Dashbord of the data':
         st.set_option('deprecation.showPyplotGlobalUse', False)
         df1 = scrap_page(num_pages, 'refrigerateurs-congelateurs')
@@ -184,7 +215,7 @@ def main():
         import streamlit.components.v1 as components
         st.write("TEST")
         html_content = """
-            <iframe src="https://ee.kobotoolbox.org/i/y3pfGxMz" width="1000" height = "750"></iframe>
+            <iframe src="https://ee.kobotoolbox.org/i/y3pfGxMz" width="700" height="200"></iframe>
             """
         st.markdown(
             f'<div style="max-width: 1000px">{html_content}</div>', 
