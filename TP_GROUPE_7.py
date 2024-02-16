@@ -143,7 +143,7 @@ def main():
             if st.button("Cuisinieres webScrap"):
                 contenu = cuisinieres
         with col4:
-            if st.button("Machine à laver data"):
+            if st.button("Machine à laver webScrap"):
                 contenu = machine_laver
 
         # Afficher st.write en pleine largeur
